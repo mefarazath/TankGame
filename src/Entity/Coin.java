@@ -22,13 +22,13 @@ public class Coin extends Node{
     private AI warrior;
     StopWatch stp = new StopWatch();
     
-    public Coin(int x,int y,int value,int life,AI warrior){
+    public Coin(int x,int y,int value,int life){
         super(x, y);
         stp.start();
         this.value = value;
         this.life = life;
         this.isAlive= true;
-        this.addObserver(warrior);
+       
     }
 
     public boolean isIsAlive() {

@@ -91,7 +91,8 @@ public class Path implements Comparable<Path>{
         }
         
         public Node getLastWayPoint(){
-                return waypoints.get(waypoints.size()-1);
+                int index = this.getLength()-1;
+                return this.getWayPointAt(index);
         }
         
         public Node getWayPointAt(int index){
@@ -100,6 +101,7 @@ public class Path implements Comparable<Path>{
 
     @Override
     public int compareTo(Path anotherPath) {
+        try{
             if(this.getLength() < anotherPath.getLength()){
                 return -1;
             }else if(this.getLength() > anotherPath.getLength()){
@@ -107,7 +109,9 @@ public class Path implements Comparable<Path>{
             }else{
                     return 0;
             }
-            
+        }catch(NullPointerException ex){
+            return -1;
+        }    
             //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -46,18 +46,21 @@ public class Astar {
 
                 //mark start and goal node
                 map.setStartLocation(startX, startY);
+               // System.out.println("start["+startX+","+startY+"]");
                 map.setGoalLocation(goalX, goalY);
+                //System.out.println("goal["+goalX+","+goalY+"]");
 
                 //Check if the goal node is blocked (if it is, it is impossible to find a path there)
                 if (map.getNode(goalX, goalY).isObstacle) {
+                   
                         return null;
                 }
-
+                System.out.println("START NODE["+map.getStartNode().getX()+","+map.getStartNode().getY()+"]");
                 map.getStartNode().setDistanceFromStart(0);
                 closedList.clear();
                 openList.clear();
                 openList.add(map.getStartNode());
-
+                
                 //while we haven't reached the goal yet
                 while(openList.size() != 0) {
 
@@ -103,11 +106,14 @@ public class Astar {
                                                 neighbor.setDistanceFromStart(neighborDistanceFromStart);
                                                 neighbor.setHdistance(heuristic.getEstimatedDistanceToGoal(neighbor.getX(), neighbor.getY(), map.getGoalLocationX(), map.getGoalLocationY()));
                                         }
+                                }else{
+                                 //   System.out.println("Obstacle");
                                 }
 
                         }
 
                 }
+               // System.out.println("NO OPEN");
                 return null;
         }
 

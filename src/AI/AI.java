@@ -14,6 +14,7 @@ import Entity.Player;
 import Map.AStarHeuristic;
 import Map.AreaMap;
 import Map.Astar;
+import Map.Node;
 import Map.Path;
 import Map.SortedPathList;
 import java.io.IOException;
@@ -102,10 +103,15 @@ public void update(Observable o, Object arg) {
                 }
                 System.out.println("");
                 System.out.println("Coin list - "+coinList.size()+"  Paths for coins-" +coinPaths.size());
-                for (int i = 0; i < coinList.size(); i++) {
-                        System.out.print("["+coinList.get(i).getValue()+","+coinList.get(i).getLife()+"] ");
+                  for (Coin coinList1 : coinList) {
+                      System.out.print("[" + coinList1.getValue() + "," + coinList1.getLife() + "] ");
+                  }
+                System.out.println("------------ coin paths -------------");
+                    for(int i=0;i<coinPaths.size();i++){
+                        Node n = coinPaths.getPathAt(i).getLastWayPoint();
+                        System.out.print(n.getX()+","+n.getY()+" - "+coinPaths.getPathAt(i).getLength()+"  ");
                     }
-                System.out.println("------------");
+                
             }
             else{
                     this.comm.sendData(currentCommands.get(0));
@@ -116,7 +122,7 @@ public void update(Observable o, Object arg) {
             
         }catch(ClassCastException ex){
               
-               this.coinList.remove((Coin)(arg));
+              // this.coinList.remove((Coin)(arg));
         }
         
         //lastMsgTime = nowTime;
@@ -259,8 +265,10 @@ public void setCoin(String coinMsg[]){
         int lifetime = Integer.parseInt(coinMsg[2]);
         int value = Integer.parseInt(coinMsg[3]);
         
-        coinList.add(new Coin(x,y,value,lifetime,this));
-        Path path = pathfinder.calcShortestPath(this.xPosition,this.yPosition,y,x);
+        coinList.add(new Coin(y,x,value,lifetime));
+        System.out.println("Path to calculate "+this.yPosition+","+this.xPosition+"-"+y+","+x);
+        
+        Path path = pathfinder.calcShortestPath(this.yPosition,this.xPosition,y,x);
         coinPaths.add(path);
         System.out.print("Path Found - ");
         for(int i=0 ; i<path.getLength();i++){
@@ -278,7 +286,7 @@ public void setLifePack(String lifeMsg[]){
         int y = Integer.parseInt(coord[1]);
         int lifetime = Integer.parseInt(lifeMsg[2]);
 
-        Path path = pathfinder.calcShortestPath(this.xPosition,this.yPosition,y,x);
+        Path path = pathfinder.calcShortestPath(this.yPosition,this.xPosition,y,x);
         packPaths.add(path);
         System.out.print("Path Found - ");
         for(int i=0 ; i<path.getLength();i++){
@@ -310,6 +318,7 @@ public void updatePlayers(String[] playerMsg){
         }
     }
 }
+
 public void handleGlobalUpate(String globalMsg){
          // G:P0;0,0;0;0;100;0;0:P1;0,9;0;0;100;0;0:P2;9,0;0;0;100;0;0:P3;9,9;0;0;100;0;0:P4;5,5;0;0;100;0;0:3,2,0;5,7,0;1,3,0;3,6,0;5,8,0#
            updatePlayers(globalMsg.split(":"));
@@ -327,12 +336,12 @@ public void handleGlobalUpate(String globalMsg){
                         packRemoval.add(l);
                     }
             }
-            
+           // Stack removeCoinPath = new Stack();
             while(!coinRemoval.empty()){
                   Coin c = (Coin)coinRemoval.pop();         
                   Path removePath = coinPaths.getPathWithEndPoint(c);
                   if(removePath != null){
-                      System.out.println(removePath.getLastWayPoint().getX()+","+removePath.getLastWayPoint().getY());
+                      System.err.println("ITS WORKING");
                   }else{
                       System.out.println("Damn shit");
                   }

@@ -15,7 +15,7 @@ import java.util.Collections;
  */
 public class SortedPathList {
 
-                private ArrayList<Path> list = new ArrayList<>();
+                public ArrayList<Path> list = new ArrayList<>();
 
                 public Path getFirst() {
                         return list.get(0);
