@@ -119,7 +119,7 @@ public class Astar {
 
                         if (x==0) {
                                 for (int i=0; i<=map.getMapWith(); i++)
-                                        System.out.print("-");
+                                        System.out.print("_ ");
                                 System.out.println();  
                         }
                         System.out.print("|");
@@ -127,25 +127,25 @@ public class Astar {
                         for(int y=0; y<map.getMapHeight(); y++) {
                                 node = map.getNode(x, y);
                                 if (node.isObstacle) {
-                                        System.out.print("X");
+                                        System.out.print("X ");
                                 } else if (node.isStart) {
-                                        System.out.print("s");
+                                        System.out.print("s ");
                                 } else if (node.isGoal) {
-                                        System.out.print("g");
+                                        System.out.print("g ");
                                 } else if (shortestPath.contains(node.getX(), node.getY())) {
-                                        System.out.print("¤");
+                                        System.out.print("¤ ");
                                 } else {
-                                        System.out.print(" ");
+                                        System.out.print(". ");
                                 }
                                 if (y==map.getMapHeight())
-                                        System.out.print("_");
+                                        System.out.print("_ ");
                         }
 
                         System.out.print("|");
                         System.out.println();
                 }
                 for (int i=0; i<=map.getMapWith(); i++)
-                        System.out.print("-");
+                        System.out.print("_ ");
         }
 
         private Path reconstructPath(Node node) {

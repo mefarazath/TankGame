@@ -30,9 +30,22 @@ public class SortedPathList {
                         Collections.sort(list);
                 }
                 
-
-                public void remove(Path p) {
-                        list.remove(p);
+                public Path getPathAt(int index){
+                        return list.get(index);
+                }
+                
+                public Path getPathWithEndPoint(Node n){
+                       for(Path p: list){
+                            if(p.getLastWayPoint().equals(n)){
+                                return p;
+                            }
+                       }
+                       return null;
+                }
+                
+                public boolean remove(Path p) {
+                    return list.remove(p);
+                        
                 }
 
                 public int size() {

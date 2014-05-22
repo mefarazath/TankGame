@@ -6,13 +6,15 @@
 
 package Map;
 
+import AI.AI;
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  *
  * @author Farazath Ahamed
  */
-public class Node implements Comparable<Node>{
+public class Node extends Observable implements Comparable<Node> {
     
 // Connected Nodes    
 Node north;
@@ -207,6 +209,12 @@ public Node (int x, int y, boolean visited, int distanceFromStart, boolean isObs
                 }
         }
         
-
+ public void setObserver(AI O){
+        this.addObserver(O);
+ }
+ 
+ public void setTheChange(){
+        this.setChanged();
+ }
     
 }

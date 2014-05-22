@@ -82,6 +82,21 @@ public class Path implements Comparable<Path>{
                 }
                 return false;
         }
+        
+        public boolean equals(Path p){
+            Node goalOther = p.getWayPoint(p.getLength()-1);
+            Node goalCurrent = p.getWayPoint(this.getLength()-1);
+            
+            return goalCurrent.equals(goalOther);
+        }
+        
+        public Node getLastWayPoint(){
+                return waypoints.get(waypoints.size()-1);
+        }
+        
+        public Node getWayPointAt(int index){
+                return waypoints.get(index);
+        }
 
     @Override
     public int compareTo(Path anotherPath) {
