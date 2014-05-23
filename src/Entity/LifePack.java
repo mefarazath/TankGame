@@ -8,7 +8,6 @@ package Entity;
 
 import Communication.StopWatch;
 import Map.Node;
-import AI.AI;
 
 /**
  *
@@ -50,10 +49,15 @@ public class LifePack extends Node {
     }
     
     public void updatePack(){
+        life = life - stp.getElapsedTime();
         if(stp.getElapsedTime() > life ){
             this.isAlive = false;
-            AI.packList.remove(this);
         }
     }
+
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+    
     
 }

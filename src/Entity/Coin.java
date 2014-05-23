@@ -55,20 +55,11 @@ public class Coin extends Node{
         life = life - stp.getElapsedTime();
         if(life <= 0){
             this.isAlive = false;
-          //  this.setChanged();
-           // this.notifyObservers(this);
         }    
     }
+
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
     
-//    public void removeCoin(){
-//           AI.coinList.remove(this);
-//    }
-    
-//    public void addObserver(AI warrior){
-//        this.setObserver(warrior);
-//    }
-//    
-//    public void informChange(){
-//        this.setTheChange();
-//    }
 }

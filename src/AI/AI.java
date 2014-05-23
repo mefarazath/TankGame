@@ -70,8 +70,7 @@ public AI(int playerNumber, int health, int xPosition, int yPosition,int directi
 }
 
     @Override
-public void update(Observable o, Object arg) {
-        try{
+public void update(Observable o, Object arg) {       
         this.input = (String)arg;
        
         System.out.println("RECIEVED MESSGAGE "+ this.watch.getElapsedTime());
@@ -109,24 +108,15 @@ public void update(Observable o, Object arg) {
                 System.out.println("------------ coin paths -------------");
                     for(int i=0;i<coinPaths.size();i++){
                         Node n = coinPaths.getPathAt(i).getLastWayPoint();
-                        System.out.print(n.getX()+","+n.getY()+" - "+coinPaths.getPathAt(i).getLength()+"  ");
+                        System.out.print(n.getY()+","+n.getX()+" - "+coinPaths.getPathAt(i).getLength()+"  ");
                     }
                 
             }
             else{
                     this.comm.sendData(currentCommands.get(0));
             }
-            // make the move by the AI
-            
-        }
-            
-        }catch(ClassCastException ex){
-              
-              // this.coinList.remove((Coin)(arg));
-        }
-        
-        //lastMsgTime = nowTime;
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+             
+        }  
 }
 
 public void joinGame(){
@@ -299,7 +289,7 @@ public void setLifePack(String lifeMsg[]){
 }
 
 public void updatePlayers(String[] playerMsg){
-    //P0;0,0;0;0;100;0;0
+    //P0;0,0;0;0;100;0;0z
         for (int i = 1; i < playerMsg.length-1; i++) {
         String[] coord = playerMsg[i].split(";");
         String xy[] = coord[1].split(",");
@@ -311,7 +301,15 @@ public void updatePlayers(String[] playerMsg){
         int life = Integer.parseInt(coord[4]);
         int coinsCollected = Integer.parseInt(coord[5]);
         int points = Integer.parseInt(coord[6]);
-
+        
+        for(Coin c:coinList){
+            if(c.getY()==x && c.getX() == y)
+                c.setIsAlive(false);
+        }
+        for(LifePack l:packList){
+            if(l.getY()==x && l.getX() == y)
+                l.setIsAlive(false);
+        }
         playerList.get(playerNum).updatePlayer(x, y, dir, life, coinsCollected, points, shoot);
         if (playerNum == playerNumber) {
             updatePlayer(x, y, dir, life, coinsCollected,points, shoot);
@@ -340,11 +338,6 @@ public void handleGlobalUpate(String globalMsg){
             while(!coinRemoval.empty()){
                   Coin c = (Coin)coinRemoval.pop();         
                   Path removePath = coinPaths.getPathWithEndPoint(c);
-                  if(removePath != null){
-                      System.err.println("ITS WORKING");
-                  }else{
-                      System.out.println("Damn shit");
-                  }
                   coinPaths.remove(removePath);
                    
                   coinList.remove(c);
