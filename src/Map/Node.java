@@ -6,7 +6,7 @@
 
 package Map;
 
-import AI.AI;
+import AI.AICore;
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -209,7 +209,7 @@ public Node (int x, int y, boolean visited, int distanceFromStart, boolean isObs
                 }
         }
         
- public void setObserver(AI O){
+ public void setObserver(AICore O){
         this.addObserver(O);
  }
  

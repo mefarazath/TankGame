@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="ALECTA">
-            <file>file:/C:/Users/Farazath%20Ahamed/Documents/NetBeansProjects/Iwarrior/src/Entity/Coin.java</file>
-            <file>file:/C:/Users/Farazath%20Ahamed/Documents/NetBeansProjects/Iwarrior/src/Map/Astar.java</file>
-            <file>file:/C:/Users/Farazath%20Ahamed/Documents/NetBeansProjects/Iwarrior/src/AI/AI.java</file>
-            <file>file:/C:/Users/Farazath%20Ahamed/Documents/NetBeansProjects/Iwarrior/src/Entity/Player.java</file>
-            <file>file:/C:/Users/Farazath%20Ahamed/Documents/NetBeansProjects/Iwarrior/src/iwarrior/Iwarrior.java</file>
-            <file>file:/C:/Users/Farazath%20Ahamed/Documents/NetBeansProjects/Iwarrior/src/Map/Path.java</file>
-            <file>file:/C:/Users/Farazath%20Ahamed/Documents/NetBeansProjects/Iwarrior/src/Communication/Communicator.java</file>
-            <file>file:/C:/Users/Farazath%20Ahamed/Documents/NetBeansProjects/Iwarrior/src/Entity/LifePack.java</file>
-            <file>file:/C:/Users/Farazath%20Ahamed/Documents/NetBeansProjects/Iwarrior/src/Map/AreaMap.java</file>
-            <file>file:/C:/Users/Farazath%20Ahamed/Documents/NetBeansProjects/Iwarrior/src/Map/SortedPathList.java</file>
-            <file>file:/C:/Users/Farazath%20Ahamed/Documents/NetBeansProjects/Iwarrior/src/Map/AStarHeuristic.java</file>
-        </group>
+        <group name="ALECTA"/>
     </open-files>
 </project-private>

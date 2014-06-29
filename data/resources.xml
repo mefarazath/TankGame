@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<!-- basedir -->
+	<basedir path="data/" />
+	<!-- sounds -->
+	<!-- songs -->
+	<!-- images -->
+	
+	
+	<image key="background" file="background/background.jpg" />
+	<image key="background2" file="background/background2.jpg" />
+	<image key="background_with_pt" file="background/background_with_point_table.jpg" />
+	<image key="arena" 	file="arena/arena2.png"/>
+	<image key="coin" 	file="arena/coin.png"/>
+	<image key="brick100" 	file="walls/brick_full.png"/>
+	<image key="brick75" 	file="walls/brick_75.png"/>
+	<image key="brick50" 	file="walls/brick_50.png"/>
+	<image key="brick25" 	file="walls/brick_25.png"/>
+	<image key="brick0" 	file="walls/brick_0.png"/>
+	<image key="stone" 	file="walls/stone.png"/>
+	<image key="water" 	file="water/water.png"/>
+	<image key="lifepack" 	file="lifepacks/lifepack.png"/>
+	<image key="opponent_up" 	file="players/images/one/up.png"/>
+	<image key="opponent_down" 	file="players/images/one/down.png"/>
+	<image key="opponent_left" 	file="players/images/one/left.png"/>
+	<image key="opponent_right" 	file="players/images/one/right.png"/>
+	<image key="me_up" 	file="players/images/two/up.png"/>
+	<image key="me_down" 	file="players/images/two/down.png"/>
+	<image key="me_left" 	file="players/images/two/left.png"/>
+	<image key="me_right" 	file="players/images/two/right.png"/>
+	<image key="bullet_up" 	file="bullet/upbullet.png"/>
+	<image key="bullet_down" 	file="bullet/downbullet.png"/>
+	<image key="bullet_left" 	file="bullet/leftbullet.png"/>
+	<image key="bullet_right" 	file="bullet/rightbullet.png"/>
+	<image key="test" 	file="test/test.png"/>
+	
+	
+	<!-- sheets -->
+	<!-- fonts -->
+</resources>

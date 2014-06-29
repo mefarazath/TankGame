@@ -44,7 +44,9 @@ public class SortedPathList {
                 }
                 
                 public boolean remove(Path p) {
-                    return list.remove(p);
+                    boolean result = list.remove(p);
+                    Collections.sort(list);
+                    return result;
                         
                 }
 

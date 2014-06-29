@@ -6,8 +6,11 @@
 
 package iwarrior;
 
-import AI.AI;
+import AI.AICore;
 import Communication.Communicator;
+import GUI.GameGUI.GUIListener;
+import GUI.GameGUI.Game_GUI;
+import org.newdawn.slick.SlickException;
 
 /**
  *
@@ -17,16 +20,21 @@ public class Iwarrior {
 
     /**
      * @param args the command line arguments
+     * @throws org.newdawn.slick.SlickException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SlickException {
         // TODO code application logic here
-        Communicator comm = new Communicator();
-        comm.sendData("JOIN#");
+        //Communicator comm = new Communicator();
+        //comm.sendData("JOIN#");
         
-        AI ai = new AI(1,2,3,4,5);
-        
+        AICore ai = new AICore(1,2,3,4,5);
+        GUIListener listener = new GUIListener();
+        ai.setListener(listener);
         //ai.joinGame();
-        ai.recieveMessage();
+        Game_GUI  game= new Game_GUI("Intelligent Warrior", listener,ai);
+       
+        game.startGame();
+       // ai.recieveMessage();
         
     }
     

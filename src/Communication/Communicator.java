@@ -6,7 +6,7 @@
 
 package Communication;
 
-import AI.AI;
+import AI.AICore;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -45,7 +45,7 @@ private ServerSocket ServerSocketForClient;
        // this.addObserver(i);
     }
 
-    public void setAI(AI warrior){
+    public void setAICore(AICore warrior){
         this.addObserver(warrior);
     }
 

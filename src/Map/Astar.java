@@ -27,7 +27,7 @@ public class Astar {
          */
         private ArrayList<Node> closedList;
         private SortedNodeList openList;
-        private Path shortestPath;
+        public Path shortestPath;
       //  Logger log = new Logger();
 
         public Astar(AreaMap map, AStarHeuristic heuristic) {
@@ -46,9 +46,9 @@ public class Astar {
 
                 //mark start and goal node
                 map.setStartLocation(startX, startY);
-               // System.out.println("start["+startX+","+startY+"]");
+               System.out.println("start["+startX+","+startY+"]");
                 map.setGoalLocation(goalX, goalY);
-                //System.out.println("goal["+goalX+","+goalY+"]");
+               System.out.println("goal["+goalX+","+goalY+"]");
 
                 //Check if the goal node is blocked (if it is, it is impossible to find a path there)
                 if (map.getNode(goalX, goalY).isObstacle) {
@@ -113,7 +113,7 @@ public class Astar {
                         }
 
                 }
-               // System.out.println("NO OPEN");
+                System.out.println("NO OPEN");
                 return null;
         }
 
